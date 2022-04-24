@@ -1,26 +1,24 @@
 package com.example.demo.model;
 
-
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Builder
 @Table("USER")
 public class UserModel {
-    private @Column("USER_ID") @Id String userId;
-	private @Column("USERS_NAME") String usersName;
-	private @Column("USERS_PASSWORD") String usersPassword;
-	private @Column("EMAIL") String userEmail;
-	private @Column("AGE") int userAge;
+    @Id
+    private int ID;
+    private String userId;
+	private String usersName;
+	private String usersPassword;
+	private String userEmail;
+	private int userAge;
 
 	public String getUserId() {
         return this.userId;

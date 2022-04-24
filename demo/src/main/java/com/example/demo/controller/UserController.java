@@ -1,11 +1,9 @@
 package com.example.demo.controller;
 
-import com.example.demo.bean.User;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
+
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +22,6 @@ import com.example.demo.service.UserService;
 @RestController
 @RequestMapping("/api/v1")
 
-@Service
 public class UserController {
 
     @Autowired
@@ -34,7 +31,7 @@ public class UserController {
 
     UserModel user;
 
-    @GetMapping("/clientesGET")
+    /*@GetMapping("/clientesGET")
     public UserModel getCliente(){
         return user;
     }
@@ -43,6 +40,7 @@ public class UserController {
     public void postCliente(@RequestBody UserModel user){
         this.user = user;
     }
+    */
 
     @GetMapping("/users")
     public ResponseEntity<Iterable<UserModel>> getUser(){
@@ -79,7 +77,7 @@ public class UserController {
 
     //Eliminar a un usuario 
     @DeleteMapping("/users/{id}")
-    public ResponseEntity<User> deleteUser(@PathVariable String id) {
+    public ResponseEntity<UserModel> deleteUser(@PathVariable String id) {
         userRepostery.deleteById(id);
         return ResponseEntity.noContent().build();
     }

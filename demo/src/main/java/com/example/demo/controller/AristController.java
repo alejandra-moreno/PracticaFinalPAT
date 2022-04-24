@@ -17,7 +17,7 @@ import com.example.demo.repository.ArtistRepository;
 
 @RestController
 @RequestMapping("/api/v1")
-@Service
+
 public class AristController {
     @Autowired
     private ArtistRepository artistRepostery;

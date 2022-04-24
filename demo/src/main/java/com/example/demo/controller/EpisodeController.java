@@ -17,7 +17,7 @@ import com.example.demo.repository.EpisodeRepository;
 
 @RestController
 @RequestMapping("/api/v1")
-@Service
+
 public class EpisodeController {
     @Autowired
     private EpisodeRepository episodeRepostery;

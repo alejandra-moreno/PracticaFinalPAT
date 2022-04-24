@@ -17,7 +17,7 @@ import com.example.demo.repository.AlbumRepository;
 
 @RestController
 @RequestMapping("/api/v1")
-@Service
+
 public class AlbumController {
     @Autowired
     private AlbumRepository albumRepostery;
