@@ -27,7 +27,7 @@ public class UserController {
     @Autowired
     private UserService userService;
     @Autowired
-    private UserRepository userRepostery;
+    private UserRepository userRepository;
 
     UserModel user;
 
@@ -45,12 +45,11 @@ public class UserController {
     @GetMapping("/users")
     public ResponseEntity<Iterable<UserModel>> getUser(){
 
-       Iterable<UserModel> response = userRepostery.findAll();
+       Iterable<UserModel> response = userRepository.findAll();
        return ResponseEntity.ok().body(response);
     }
 
     //Insertar un nuevo usuario
-    //Meter un usuario
     @PostMapping("/users")
     public ResponseEntity<String> createUserById(
         @RequestBody UserModel user,
@@ -68,7 +67,7 @@ public class UserController {
     //Actualizar información de un usuario
     @PutMapping("/users/{id}/")
     public ResponseEntity<UserModel> updateUser(@PathVariable String id, @RequestBody UserModel user) {
-        UserModel newUser = userRepostery.save(user);
+        UserModel newUser = userRepository.save(user);
         if (newUser == null) {
             return ResponseEntity.badRequest().body(null);
         }
@@ -78,10 +77,7 @@ public class UserController {
     //Eliminar a un usuario 
     @DeleteMapping("/users/{id}")
     public ResponseEntity<UserModel> deleteUser(@PathVariable String id) {
-        userRepostery.deleteById(id);
+        userRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-
-    
-
 }

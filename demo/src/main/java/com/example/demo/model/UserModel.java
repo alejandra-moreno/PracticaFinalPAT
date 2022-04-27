@@ -20,6 +20,10 @@ public class UserModel {
 	private String userEmail;
 	private int userAge;
 
+    public int getId() {
+        return this.ID;
+    }
+
 	public String getUserId() {
         return this.userId;
     }

@@ -20,19 +20,19 @@ import com.example.demo.repository.AlbumRepository;
 
 public class AlbumController {
     @Autowired
-    private AlbumRepository albumRepostery;
+    private AlbumRepository albumRepository;
 
     @GetMapping("/album")
     public ResponseEntity<Iterable<AlbumModel>> getAlbum(){
 
-       Iterable<AlbumModel> response = albumRepostery.findAll();
+       Iterable<AlbumModel> response = albumRepository.findAll();
        return ResponseEntity.ok().body(response);
     }
 
 
     @PutMapping("/album/{id}/")
     public ResponseEntity<AlbumModel> updateAlbum(@PathVariable String id, @RequestBody AlbumModel album) {
-        AlbumModel newAlbum = albumRepostery.save(album);
+        AlbumModel newAlbum = albumRepository.save(album);
         if (newAlbum == null) {
             return ResponseEntity.badRequest().body(null);
         }
@@ -41,7 +41,7 @@ public class AlbumController {
 
     @DeleteMapping("/album/{id}")
     public ResponseEntity<AlbumModel> deleteAlbum(@PathVariable String id) {
-        albumRepostery.deleteById(id);
+        albumRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
     

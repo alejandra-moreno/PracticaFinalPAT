@@ -58,3 +58,40 @@ submitbtn.addEventListener("click",
     }
   })
 );
+
+let eliminarUser = document.getElementById("btnEliminar");
+eliminarUser.addEventListener("click",
+
+(postCliente = async() => {
+
+  let requestGet = await fetch("/api/v1/users", {
+      method : "GET",
+      credentials: "same-origin", 
+      dataType: "json",
+  }).catch(console.error);
+
+  const data = await requestGet.json();
+  console.log(data);
+
+  if(requestGet.ok) {
+    console.log("Buscado con éxito");
+  }
+
+  let idI = document.getElementById("exampleId").value;
+
+  for(var i=0;i<data.length;i++){
+    console.log(data[i].id);
+    if(idI==data[i].id){
+      let request = await fetch("/api/v1/users/"+data[i].id, {
+        method : "DELETE",
+        credentials: "same-origin", 
+        dataType: "json",
+      }).catch(console.error);
+
+      if(request.ok) {
+        console.log("Borrado con éxito");
+      }
+    }
+  }
+  })
+);

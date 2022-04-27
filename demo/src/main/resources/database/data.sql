@@ -1,4 +1,4 @@
-INSERT INTO USER (ID, USER_ID, USERS_NAME, USERS_PASSWORD, USER_EMAIL, USER_AGE) VALUES ('1','B','BlancaePedr','98yFR3L0','blancadepedr@gmail.com','20');
+INSERT INTO USER (ID, USER_ID, USERS_NAME, USERS_PASSWORD, USER_EMAIL, USER_AGE) VALUES ('1','B','BlancaDePedro','98yFR3L0','blancadepedr@gmail.com','20');
 --INSERT INTO USER (USER_ID, USERS_NAME, USERS_PASSWORD, EMAIL, INITIAL_DATE) VALUES (2,'AlmudePedro','2L34rg67','almudenadepedrom@gmail.com','2022-04-13');
 
 --INSERT INTO SONG (SONG_ID, SONG_NAME, SONG_ARTIST,  RELEASE_DATE, ALBUM, GENRE) VALUES (1,'All Too Well (10 Minute Version) (Taylors Version)', 'Taylor Swift', 2021-11-12, 'Red (Taylors Version)', 'Country pop');

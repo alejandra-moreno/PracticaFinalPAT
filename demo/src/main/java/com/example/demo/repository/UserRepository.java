@@ -9,7 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<UserModel,String>{
     @Query("SELECT * FROM USER WHERE USER.USER_ID = :userId")
-    public Iterable <UserModel> getUserById(String userId);
+    public Iterable <UserModel> getUserById(int userId);
 
     @Query("UPDATE USER SET USER.USERS_NAME= :usersName WHERE USER.USER_ID = :userId")
     public UserModel updateUserName(String usersName,String userId);
@@ -22,5 +22,5 @@ public interface UserRepository extends CrudRepository<UserModel,String>{
     public void createUser(String userId,String usersName,String usersPassword,String userEmail,int userAge);
 
     @Query("DELETE FROM USER WHERE USER.USER_ID = :userId")
-    public void deleteUser(String userId);
+    public void deleteById(int userId);
 }
